@@ -49,9 +49,10 @@
             this.picBox.BackgroundImage = global::MuncheProject.Properties.Resources.grass_template2;
             this.picBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picBox.InitialImage = global::MuncheProject.Properties.Resources.grass_template2;
-            this.picBox.Location = new System.Drawing.Point(12, 12);
+            this.picBox.Location = new System.Drawing.Point(16, 15);
+            this.picBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picBox.Name = "picBox";
-            this.picBox.Size = new System.Drawing.Size(580, 680);
+            this.picBox.Size = new System.Drawing.Size(773, 837);
             this.picBox.TabIndex = 0;
             this.picBox.TabStop = false;
             this.picBox.Paint += new System.Windows.Forms.PaintEventHandler(this.UpdatePicBox);
@@ -62,9 +63,10 @@
             this.StartButton.FlatAppearance.BorderSize = 0;
             this.StartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartButton.Location = new System.Drawing.Point(610, 12);
+            this.StartButton.Location = new System.Drawing.Point(813, 15);
+            this.StartButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.StartButton.Name = "StartButton";
-            this.StartButton.Size = new System.Drawing.Size(126, 63);
+            this.StartButton.Size = new System.Drawing.Size(168, 78);
             this.StartButton.TabIndex = 1;
             this.StartButton.Text = "Start Game";
             this.StartButton.UseVisualStyleBackColor = false;
@@ -76,9 +78,10 @@
             this.SaveButton.FlatAppearance.BorderSize = 0;
             this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveButton.Location = new System.Drawing.Point(610, 81);
+            this.SaveButton.Location = new System.Drawing.Point(813, 100);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(126, 63);
+            this.SaveButton.Size = new System.Drawing.Size(168, 78);
             this.SaveButton.TabIndex = 2;
             this.SaveButton.Text = "Save Score";
             this.SaveButton.UseVisualStyleBackColor = false;
@@ -90,9 +93,10 @@
             this.LoadButton.FlatAppearance.BorderSize = 0;
             this.LoadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoadButton.Location = new System.Drawing.Point(610, 150);
+            this.LoadButton.Location = new System.Drawing.Point(813, 185);
+            this.LoadButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LoadButton.Name = "LoadButton";
-            this.LoadButton.Size = new System.Drawing.Size(126, 63);
+            this.LoadButton.Size = new System.Drawing.Size(168, 78);
             this.LoadButton.TabIndex = 3;
             this.LoadButton.Text = "Load High Score";
             this.LoadButton.UseVisualStyleBackColor = false;
@@ -102,9 +106,10 @@
             // 
             this.txtScore.AutoSize = true;
             this.txtScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtScore.Location = new System.Drawing.Point(605, 246);
+            this.txtScore.Location = new System.Drawing.Point(807, 303);
+            this.txtScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtScore.Name = "txtScore";
-            this.txtScore.Size = new System.Drawing.Size(76, 20);
+            this.txtScore.Size = new System.Drawing.Size(94, 25);
             this.txtScore.TabIndex = 4;
             this.txtScore.Text = "Score: 0";
             // 
@@ -112,25 +117,28 @@
             // 
             this.txtHighScore.AutoSize = true;
             this.txtHighScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHighScore.Location = new System.Drawing.Point(606, 284);
+            this.txtHighScore.Location = new System.Drawing.Point(808, 350);
+            this.txtHighScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtHighScore.Name = "txtHighScore";
-            this.txtHighScore.Size = new System.Drawing.Size(98, 20);
+            this.txtHighScore.Size = new System.Drawing.Size(119, 25);
             this.txtHighScore.TabIndex = 4;
             this.txtHighScore.Text = "High Score";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(748, 725);
+            this.ClientSize = new System.Drawing.Size(997, 892);
             this.Controls.Add(this.txtHighScore);
             this.Controls.Add(this.txtScore);
             this.Controls.Add(this.LoadButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.picBox);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Snake Game";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();

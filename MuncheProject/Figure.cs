@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace MuncheProject
 {
@@ -20,6 +21,6 @@ namespace MuncheProject
         public int GetY() { return Y; }
         public void SetY(int y) { Y = y; }
 
-        
+        public virtual void updateSize(Graphics g,Settings set,Circle part,Brush brushColor) { }
     }
 }

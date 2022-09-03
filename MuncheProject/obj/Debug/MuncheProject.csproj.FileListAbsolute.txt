@@ -9,3 +9,14 @@ C:\Users\Ido\source\repos\MuncheProject\bin\Debug\MuncheProject.exe
 C:\Users\Ido\source\repos\MuncheProject\bin\Debug\MuncheProject.pdb
 C:\Users\Ido\source\repos\MuncheProject\obj\Debug\MuncheProject.exe
 C:\Users\Ido\source\repos\MuncheProject\obj\Debug\MuncheProject.pdb
+C:\Users\xvrui\source\repos\MuncheProject\bin\Debug\MuncheProject.exe.config
+C:\Users\xvrui\source\repos\MuncheProject\bin\Debug\MuncheProject.exe
+C:\Users\xvrui\source\repos\MuncheProject\bin\Debug\MuncheProject.pdb
+C:\Users\xvrui\source\repos\MuncheProject\obj\Debug\MuncheProject.csproj.AssemblyReference.cache
+C:\Users\xvrui\source\repos\MuncheProject\obj\Debug\MuncheProject.csproj.SuggestedBindingRedirects.cache
+C:\Users\xvrui\source\repos\MuncheProject\obj\Debug\MuncheProject.Form1.resources
+C:\Users\xvrui\source\repos\MuncheProject\obj\Debug\MuncheProject.Properties.Resources.resources
+C:\Users\xvrui\source\repos\MuncheProject\obj\Debug\MuncheProject.csproj.GenerateResource.cache
+C:\Users\xvrui\source\repos\MuncheProject\obj\Debug\MuncheProject.csproj.CoreCompileInputs.cache
+C:\Users\xvrui\source\repos\MuncheProject\obj\Debug\MuncheProject.exe
+C:\Users\xvrui\source\repos\MuncheProject\obj\Debug\MuncheProject.pdb

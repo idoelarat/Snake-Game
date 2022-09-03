@@ -20,18 +20,26 @@ namespace MuncheProject
         {
             SetX(x);
             SetY(y);
-            EventScore++;
+            //scoreCounter();
         }
-        public virtual void BackgourdEvent()
-        { 
-            if (EventScore == 0)
-            {
-               PictureBox picBox1 = MyPictureBox();
-            }
-        }
-        public virtual void ColorEvent() 
-        {
-            Brush SnakeColour = Brushes.DarkRed;
+        //public virtual void BackgourdEvent()
+        //{ 
+           
+        //}
+        //public virtual void ColorEvent() 
+        //{
+        //    Brush SnakeColour = Brushes.DarkRed;
+        //}
+        public void scoreCounter() { EventScore++; }
+
+        public override void updateSize(Graphics g, Settings set, Circle part, Brush brushColor) {
+            
+            g.FillEllipse(brushColor, new Rectangle
+                    (
+                    part.GetX() * Settings.Width,
+                    part.GetY() * Settings.Height,
+                    Settings.Width, Settings.Height
+                    ));
         }
     }
 }

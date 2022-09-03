@@ -19,5 +19,9 @@ namespace MuncheProject
             Height = 16;
             directions = "left";
         }
+        public double SnakeSize()
+        {
+            return 16 * 1.5;
+        }
     }
 }

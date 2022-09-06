@@ -7,6 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
+
+using System.IO;
+using System.Runtime.Serialization;//!!!!!!
+using System.Runtime.Serialization.Formatters.Binary;
+
 
 namespace MuncheProject
 {
@@ -20,10 +26,12 @@ namespace MuncheProject
         private Figure shapeList = new Circle();
         private Figure shapeList2 = new Elipse();
         private Figure shapeList3 = new BiggerElipse();
-
+        private List<Scoreboard> listScores = new List<Scoreboard>();
+        
+        
         int boxWidth;
         int boxHeight;
-
+        string name;
         int score;
         int highScore;
         
@@ -32,12 +40,18 @@ namespace MuncheProject
        bool goLeft, goRight, goUp , goDown;
 
         Settings newSettings = new Settings();
+        
         public Form1()
         {
             InitializeComponent();
-            
+           
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+           
+
+        }
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left && Settings.directions != "right")
@@ -83,11 +97,6 @@ namespace MuncheProject
             RestartGame();
         }
 
-        private void SaveScore(object sender, EventArgs e)
-        {
-
-        }
-
         private void RestartGame()
         {
             boxWidth = picBox.Width / Settings.Width - 1;
@@ -99,6 +108,8 @@ namespace MuncheProject
             StartButton.Enabled = false;
             SaveButton.Enabled = false;
             LoadButton.Enabled = false;
+            NameTextBox.Enabled = false;
+            ScoreBoardGrid.Enabled = false;
             score = 0;
             txtScore.Text = "Score: " + score;
 
@@ -460,11 +471,55 @@ namespace MuncheProject
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void NameTextBoxChange(object sender, EventArgs e)
         {
+            name = NameTextBox.Text;
+        }
+
+        private void SaveScoreBoard(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.InitialDirectory = Directory.GetCurrentDirectory();// + "..\\myModels";
+            saveFileDialog1.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.RestoreDirectory = true;
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                IFormatter formatter = new BinaryFormatter();
+                using (Stream stream = new FileStream(saveFileDialog1.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
+                {
+                    //!!!!
+                   formatter.Serialize(stream, listScores);
+                }
+            }
 
         }
 
+        private void LoadScoreButton(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.InitialDirectory = Directory.GetCurrentDirectory();// + "..\\myModels";
+            openFileDialog1.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Stream stream = File.Open(openFileDialog1.FileName, FileMode.Open);
+                var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                //!!!!
+                listScores = (List<Scoreboard>)binaryFormatter.Deserialize(stream);
+                picBox.Invalidate();
+            }
+            updatedatagridupload(listScores);
+        }
+        private void updatedatagridupload(List<Scoreboard> listScores)
+        {
+            for (int i = 0; i < listScores.Count ; i++)
+            {
+                ScoreBoardGrid.Rows.Add(listScores[i].getplayerName(), listScores[i].getplayerScore());
+            }
+            
+        }
         private void EatPoision()
         {
             GameOver();
@@ -474,7 +529,11 @@ namespace MuncheProject
             gameTimer.Stop();
             StartButton.Enabled = true;
             SaveButton.Enabled = true;
-
+            LoadButton.Enabled = true;
+            ScoreBoardGrid.Enabled = true;
+            NameTextBox.Enabled = true;
+            listScores.Add(new Scoreboard(score, name));
+            ScoreBoardGrid.Rows.Add(name,score);
             if (score > highScore)
             {
                 highScore = score;
@@ -486,5 +545,6 @@ namespace MuncheProject
             string title = "Well Done";
             MessageBox.Show(message, title);
         }
+        
     }
 }

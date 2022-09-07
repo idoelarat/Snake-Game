@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Media;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,11 @@ namespace MuncheProject
         private Figure shapeList3 = new BiggerElipse();
         private List<Scoreboard> listScores = new List<Scoreboard>();
         
+       SoundPlayer LoseSound = new SoundPlayer("Lose_sound.wav"),
+            EatingSound = new SoundPlayer("MinecraftEatingSound.wav"),
+            StartGameSound = new SoundPlayer("start_game_sound.wav");        
+
+
         
         int boxWidth;
         int boxHeight;
@@ -101,7 +107,7 @@ namespace MuncheProject
         {
             boxWidth = picBox.Width / Settings.Width - 1;
             boxHeight = picBox.Height / Settings.Height - 1;
-
+            StartGameSound.Play();
             Snake.Clear();
             Snake2.Clear();
             Snake3.Clear();
@@ -158,6 +164,7 @@ namespace MuncheProject
             }
             if (score <= 5)
             {
+              
                 for (int i = Snake.Count - 1; i >= 0; i--)
                 {
                     if (i == 0)
@@ -286,6 +293,7 @@ namespace MuncheProject
                         Snake2[i].SetX(Snake2[i - 1].GetX());
                         Snake2[i].SetY(Snake2[i - 1].GetY());
                     }
+ 
                 }
                 if (score == 11)
                 {
@@ -299,7 +307,7 @@ namespace MuncheProject
 
             if (score >= 11)
             {
-
+                
                 for (int i = Snake3.Count - 1; i >= 0; i--)
                 {
                     if (i == 0)
@@ -467,6 +475,7 @@ namespace MuncheProject
 
             food = new Circle ( rand.Next(2, boxWidth),  rand.Next(2, boxHeight) );
             Poision = new Rectangel(rand.Next(2, boxWidth), rand.Next(2, boxHeight));
+            EatingSound.Play();
 
 
         }
@@ -527,6 +536,7 @@ namespace MuncheProject
         private void GameOver()
         {
             gameTimer.Stop();
+            LoseSound.Play();
             StartButton.Enabled = true;
             SaveButton.Enabled = true;
             LoadButton.Enabled = true;

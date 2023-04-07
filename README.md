@@ -1,2 +1,2 @@
 # Snake-Game
-C# project for HIT OOP
+C# project for HIT OOP Course
